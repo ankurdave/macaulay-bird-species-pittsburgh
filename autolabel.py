@@ -20,6 +20,8 @@ model_onnx.conf = 0.5
 window_name = 'image'
 cv2.namedWindow(window_name)
 
+prev_label_files = []
+
 def try_autolabel(image_infile, label_outfile, cls):
     if os.path.exists(label_outfile):
         print(f"{image_infile} is already labeled as {label_outfile}, skipping.")
@@ -64,6 +66,7 @@ def try_autolabel(image_infile, label_outfile, cls):
     print(f"- Click and drag to add a new label.")
     print(f"- Press n to skip this image.")
     print(f"- Press x to delete this image.")
+    print(f"- Press u to undo (delete) the most recently saved label file.")
     print(f"- Press q/ESC to quit.")
     print(f"Press a key...")
 
@@ -119,6 +122,7 @@ def try_autolabel(image_infile, label_outfile, cls):
                     label_line = f"{cls} {x_center} {y_center} {width} {height}"
                     print(f"  {label_line}")
                     label_file.write(label_line + "\n")
+            prev_label_files.append(label_outfile)
             return
         elif user_command == ord('n'):
             print(f"Skipping {image_infile}.")
@@ -127,6 +131,13 @@ def try_autolabel(image_infile, label_outfile, cls):
             print(f"Deleting {image_infile}.")
             os.remove(image_infile)
             return
+        elif user_command == ord('u'):
+            if len(prev_label_files) > 0:
+                prev_label_file = prev_label_files.pop()
+                os.remove(prev_label_file)
+                print(f"Undoing previous label file {prev_label_file}.")
+            else:
+                print(f"No previous label file to undo.")
         elif user_command == ord('c'):
             print(f"Clearing labels.")
             label_coords = []
