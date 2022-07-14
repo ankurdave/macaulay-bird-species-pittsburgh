@@ -39,7 +39,7 @@ csv_to_dir = [
     ('ML__2022-07-12T19-01_norcar_photo.csv', '23_northern_cardinal_adult_male'),
     ('ML__2022-07-12T19-02_norcar_photo.csv', '24_northern_cardinal_female_juvenile'),
     ('ML__2022-07-12T19-03_comgra_photo.csv', '25_common_grackle'),
-    ('ML__2022-07-12T19-03_rewbla_photo.csv', '26_red_winged_blackbird'),
+    ('ML__2022-07-12T19-03_rewbla_photo.csv', '26_red_winged_blackbird_male'),
     ('ML__2022-07-12T19-08_eursta_photo.csv', '27_european_starling_nonbreeding'),
     ('ML__2022-07-12T19-06_eursta_photo.csv', '28_european_starling_breeding_adult'),
 ]
