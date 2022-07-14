@@ -66,3 +66,9 @@ cd yolov5
 pip3 install -r requirements.txt
 python3 train.py --data ../bird-datasets/macaulay/macaulay-bird-species-pittsburgh.yaml --weights ../bird-models/yolov5n-birds-pittsburgh.pt --cfg yolov5n.yaml --cache disk
 ```
+
+To add more labels to this dataset:
+
+1. Search for a single bird species on eBird. Download a CSV of the search results.
+2. Edit `scrape-macaulay-search-csv.py` to add the CSV to `csv_to_dir`, then run that script to download the images.
+3. Run `python3 autolabel.py <class_id> images/all/<dir>/` to label the new images with model assist. For example, to label images of Mourning Doves: `python3 autolabel.py '0' images/all/0_mourning_dove/`
