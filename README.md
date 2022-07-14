@@ -34,3 +34,35 @@ class_id_to_name_and_nabirds_id = {
     '28': ('748', 'European Starling (Breeding Adult)'),
 }
 ```
+
+Train with YOLOv5:
+
+```python
+# Datasets
+# ========
+mkdir bird-datasets
+pushd bird-datasets
+
+# Clone this repo and run `python3 download_images.py && python3 create-train-test-val-split.py`,
+# or download a pre-created version using
+# `aws s3 cp s3://macaulay-bird-species-pittsburgh/macaulay.tar.gz . && tar xzf macaulay.tar.gz`.
+
+# Edit macaulay/macaulay-bird-species-pittsburgh.yaml and set the path to bird-datasets.
+
+# Optional: Download the NABirds dataset (creation instructions TODO) using
+# `aws s3 cp s3://macaulay-bird-species-pittsburgh/nabirds_yolov5.tar.gz . && tar xzf nabirds_yolov5.tar.gz`.
+
+popd
+
+# Start from pretrained model (optional)
+# ======================================
+mkdir bird-models
+curl -o bird-models/yolov5n-birds-pittsburgh.pt -L https://github.com/ankurdave/bird-models/raw/master/yolov5n-birds-pittsburgh.pt
+
+# Training
+# ========
+git clone https://github.com/ultralytics/yolov5.git
+cd yolov5
+pip3 install -r requirements.txt
+python3 train.py --data ../bird-datasets/macaulay/macaulay-bird-species-pittsburgh.yaml --weights ../bird-models/yolov5n-birds-pittsburgh.pt --cfg yolov5n.yaml --cache disk
+```

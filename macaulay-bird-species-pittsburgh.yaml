@@ -1,0 +1,13 @@
+path: bird-datasets
+train:
+- macaulay/images/train
+- nabirds_yolov5/images/train
+val:
+- macaulay/images/val
+- nabirds_yolov5/images/val
+test:
+- macaulay/images/test
+- nabirds_yolov5/images/test
+
+nc: 29
+names: ['Mourning Dove', 'Red-bellied Woodpecker', 'Downy Woodpecker', 'Blue Jay', 'American Crow', 'American Robin (Adult)', 'Tufted Titmouse', 'Carolina Chickadee', 'Black-capped Chickadee', 'White-breasted Nuthatch', 'Carolina Wren', 'Song Sparrow', 'Eastern Towhee', 'Chipping Sparrow (Breeding)', 'Chipping Sparrow (Immature/nonbreeding adult)', 'Dark-eyed Junco (Slate-colored)', 'White-throated Sparrow (White-striped)', 'House Sparrow (Male)', 'House Sparrow (Female/Juvenile)', 'American Goldfinch (Breeding Male)', 'American Goldfinch (Female/Nonbreeding Male)', 'House Finch (Adult Male)', 'House Finch (Female/immature)', 'Northern Cardinal (Adult Male)', 'Northern Cardinal (Female/Juvenile)', 'Common Grackle', 'Red-winged Blackbird (Male)', 'European Starling (Nonbreeding Adult)', 'European Starling (Breeding Adult)']
