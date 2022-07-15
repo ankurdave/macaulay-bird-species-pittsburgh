@@ -1,6 +1,12 @@
 See `bird_classes.py` for the meaning of each class id.
 
-Use a [pretrained YOLOv5 model](https://github.com/ankurdave/bird-models) or train your own as follows:
+Use a [pretrained YOLOv5 model](https://github.com/ankurdave/bird-models):
+
+| Model | # classes | Download links | val mAP@.5:.95 |
+| yolov5n-birds-pittsburgh | 29 | [.pt](yolov5n-birds-pittsburgh.pt), [ONNX](yolov5n-birds-pittsburgh.onnx) | .802 |
+| yolov5s-birds-pittsburgh | 29 | [.pt](yolov5s-birds-pittsburgh.pt), [ONNX](yolov5s-birds-pittsburgh.onnx) | .838 | 
+
+Or train your own as follows:
 
 ```python
 # Datasets
