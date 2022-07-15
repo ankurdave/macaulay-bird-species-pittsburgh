@@ -1,6 +1,6 @@
 See `bird_classes.py` for the meaning of each class id.
 
-Train with YOLOv5:
+Use a [pretrained YOLOv5 model](https://github.com/ankurdave/bird-models) or train your own as follows:
 
 ```python
 # Datasets
